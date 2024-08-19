@@ -49,6 +49,7 @@ def strg_preference(data, n=20):
     
     total_p = sum(p)
     for i in range(len(p)):
+        p[i]*=8     # To ensure that the sum of p equals 8."
         p[i]/= total_p
     
     return p
@@ -93,12 +94,12 @@ def strg_evaluation(data):
     
     # Metric of each strategy
     each_strg_f1_score = f1_score(gths, preds, average=None)
-    strg_bias_1_a=[]; strg_bias_1_b=[]; strg_f1=[]
+    strg_preference_list=[]; strg_f1=[]
     for strg in strg_list:
         strg_metrics={}
         
         strg_metrics["preference"] =  strg_preferences[strategy_order[strg]] 
-        strg_bias_1_b.append(strg_preferences[strategy_order[strg]])
+        strg_preference_list.append(strg_preferences[strategy_order[strg]])
         
         strg_metrics['each f1 score'] = each_strg_f1_score[strategy_order[strg]]
         strg_f1.append(each_strg_f1_score[strategy_order[strg]])
@@ -106,30 +107,23 @@ def strg_evaluation(data):
         strg_metric[strg] = strg_metrics
     
     # Total results print
-    metrics['p_bias'] = np.std(strg_bias_1_b)
+    metrics['p_bias'] = np.std(strg_preference_list)
     metrics['weighted_f1_score'] = weighted_f1
     metrics = {k: float(v) for k, v in metrics.items()}
     
-    print(f"Total Results")
-    print("Preference_bias | weighted-F1 ")
-    print(f"{metrics['p_bias']}, {metrics['weighted_f1_score']}\n")
-
-    
+    # Print Results
     name_strg_list = list(strg_metric.keys())
     print("Results of each strategy")
     print("Strategy | Preference | weighted-F1")
     for name in name_strg_list:
         m = strg_metric[name]
-        values = m.values()
-        y = ""
-        for l, v in enumerate(values):
-            if l==len(values):
-                y+=str(v)
-            else:    
-                y+=str(v)+", "
+        y = f"{name}: {strg_metric[name]['preference']}, {strg_metric[name]['each f1 score']}"
         print(y)
     print()
     
+    print(f"Total Results")
+    print(f"Preference_bias : {metrics['p_bias']}")
+    print(f"weighted-F1 : {metrics['weighted_f1_score']}")
     print(f"Macro F1 (Q) : {macro_f1}")
     
 def checking_error(file_name, mode=None):
