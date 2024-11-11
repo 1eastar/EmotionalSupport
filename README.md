@@ -1,9 +1,21 @@
-<p align="center">
-  This is the official repository for our ACL paper:<br><a href="https://arxiv.org/abs/2402.13211/">Can Large Language Models be Good Emotional Supporter? Mitigating Preference Bias on Emotional Support Conversation</a>
-  <br><br><b>🏆 Our paper won the Outstanding Paper Award at ACL 2024!</b>
-</p>
-<br>
+# Can Large Language Models be Good Emotional Supporter? Mitigating Preference Bias on Emotional Support Conversation
+<b>🏆 Our paper won the [Outstanding Paper Award](https://2024.aclweb.org/program/best_papers/) at ACL 2024!</b>
 
+Official Repository of "Can Large Language Models be Good Emotional Supporter? Mitigating Preference Bias on Emotional Support Conversation" accepted at ACL 2024.
+
+**Dongjin Kang\*, Sunghwan Kim\*, Taeyoon Kwon, Seungjun Moon, Hyunsouk Cho, Youngjae Yu, Dongha Lee, Jinyoung Yeo**<br><sup> * Equal contribution </sup>
+
+Paper Link: https://aclanthology.org/2024.acl-long.813
+
+
+## Evaluation 
+To evaluate the proficiency $Q$ and preference bias $B$, run
+```
+python src/metric.py
+```
+
+## Citation
+If you find this useful, please consider citing our paper:
 ```
 @inproceedings{kang-etal-2024-large,
     title={Can Large Language Models be Good Emotional Supporter? Mitigating Preference Bias on Emotional Support Conversation},
