@@ -11,8 +11,10 @@ Paper Link: https://aclanthology.org/2024.acl-long.813
 ## Evaluation 
 To evaluate the proficiency $Q$ and preference bias $B$, run
 ```
-python src/metric.py
+python metric.py \
+    --file_name /PATH/TO/RESULT/FILE
 ```
+Check the ```result.json``` file if you need an example of the output format.
 
 ## Citation
 If you find this useful, please consider citing our paper:
