@@ -1,4 +1,4 @@
-# Can Large Language Models be Good Emotional Supporter? Mitigating Preference Bias on Emotional Support Conversation
+## Can Large Language Models be Good Emotional Supporter? Mitigating Preference Bias on Emotional Support Conversation
 <b>🏆 Our paper won the [Outstanding Paper Award](https://2024.aclweb.org/program/best_papers/) at ACL 2024!</b>
 
 Official Repository of "Can Large Language Models be Good Emotional Supporter? Mitigating Preference Bias on Emotional Support Conversation" accepted at ACL 2024.
